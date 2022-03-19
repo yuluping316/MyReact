@@ -1,11 +1,17 @@
-import React from 'react'
-const data = [1, 2, 3, 4, 5, 6]
-export default function Test() {
+import React, { useState } from 'react'
+import styles from './index.less'
+export default function Test(props) {
+  const { name, age } = props
+  const [data,setData]=useState(['a','b'])
+  const handleData=()=>{
+    setData([...data,'c'])
+  }
   return (
-    <div className='Test'>
+    <div className={styles.Test} onClick={handleData}>
+      {name + age}
       {
-        data.map((i) => (
-          <p key={i}>{i}</p>
+        data.map((i,index) => (
+          <i key={index}>{i}</i>
         ))
       }
     </div>
